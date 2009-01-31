@@ -1,0 +1,28 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/freeimage/FreeImage3110.zip"
+TARBALL="FreeImage3110.zip"
+DIR="FreeImage"
+
+LOCAL_DIR=`pwd`
+setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+
+    cp "${LOCAL_DIR}/patches/freeimage-make.patch" ./ || exit 1
+    patch -p0 < freeimage-make.patch || exit 1
+
+    make -f Makefile.fip                                       \
+        COMPILERFLAGS="-fPIC -fexceptions -fvisibility=hidden" \
+        INCDIR="${PREFIX}/include"                             \
+        INSTALLDIR="${PREFIX}" || exit 1
+    make -f Makefile.fip                                       \
+        COMPILERFLAGS="-fPIC -fexceptions -fvisibility=hidden" \
+        INCDIR="${PREFIX}/include"                             \
+        INSTALLDIR="${PREFIX}"                                 \
+        install || exit 1
+teardown

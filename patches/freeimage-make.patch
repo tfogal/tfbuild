@@ -1,0 +1,21 @@
+--- Makefile.fip.orig	2009-01-31 15:57:43.000000000 -0700
++++ Makefile.fip	2009-01-31 15:58:12.000000000 -0700
+@@ -59,12 +59,12 @@
+ 	$(CC) -s -shared -Wl,-soname,$(VERLIBNAME) -o $@ $(MODULES) $(LIBRARIES)
+ 
+ install:
+-	install -m 644 -o root -g root $(HEADER) $(INCDIR)
+-	install -m 644 -o root -g root $(HEADERFIP) $(INCDIR)
+-	install -m 644 -o root -g root $(STATICLIB) $(INSTALLDIR)
+-	install -m 755 -o root -g root $(SHAREDLIB) $(INSTALLDIR)
+-	ln -sf $(SHAREDLIB) $(INSTALLDIR)/$(VERLIBNAME)
+-	ln -sf $(VERLIBNAME) $(INSTALLDIR)/$(LIBNAME)
++	install -m 644 $(HEADER) $(INCDIR)
++	install -m 644 $(HEADERFIP) $(INCDIR)
++	install -m 644 $(STATICLIB) $(INSTALLDIR)/lib
++	install -m 755 $(SHAREDLIB) $(INSTALLDIR)/lib
++	ln -sf $(SHAREDLIB) $(INSTALLDIR)/lib/$(VERLIBNAME)
++	ln -sf $(VERLIBNAME) $(INSTALLDIR)/lib/$(LIBNAME)
+ 	ldconfig
+ 
+ clean:
