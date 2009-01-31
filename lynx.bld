@@ -1,0 +1,14 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://lynx.isc.org/lynx2.8.5/lynx2.8.5.tar.bz2"
+TARBALL="lynx2.8.5.tar.bz2"
+
+setup
+src_download
+src_extract
+cd lynx2-8-5
+src_configure
+src_make
+src_install
+teardown

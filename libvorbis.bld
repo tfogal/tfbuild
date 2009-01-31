@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.xiph.org/releases/vorbis/libvorbis-1.2.0.tar.gz"
+TARBALL="libvorbis-1.2.0.tar.gz"
+
+gnu_pkg

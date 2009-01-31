@@ -1,0 +1,8 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf.tar.gz"
+TARBALL="netcdf.tar.gz"
+DIR="netcdf-4.0"
+
+gnu_pkg --enable-shared

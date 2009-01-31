@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://hem.bredband.net/kaw/ncmpc/files/ncmpc-0.11.1.tar.gz"
+TARBALL="ncmpc-0.11.1.tar.gz"
+
+gnu_pkg --disable-mouse

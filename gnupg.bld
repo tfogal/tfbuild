@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.6.tar.bz2"
+TARBALL="gnupg-2.0.6.tar.bz2"
+
+gnu_pkg

@@ -1,0 +1,20 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.tcpdump.org/release/tcpdump-3.9.8.tar.gz"
+TARBALL="tcpdump-3.9.8.tar.gz"
+
+LIBS="-ldl"
+setup
+src_download
+src_extract
+src_cd
+
+# Add our custom path to the build configuration flags.
+export CFLAGS="${CFLAGS} -I${PREFIX}/include"
+export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include"
+export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib64 -L${PREFIX}/lib"
+src_configure LIBS="-ldl"
+src_make
+src_install
+teardown

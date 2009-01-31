@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://ftp.gnome.org/pub/gnome/sources/atk/1.20/atk-1.20.0.tar.bz2"
+TARBALL="atk-1.20.0.tar.bz2"
+
+gnu_pkg

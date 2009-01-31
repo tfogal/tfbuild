@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.cairographics.org/releases/cairomm-1.6.0.tar.gz"
+TARBALL="cairomm-1.6.0.tar.gz"
+
+gnu_pkg

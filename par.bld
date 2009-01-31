@@ -1,0 +1,17 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.nicemice.net/par/Par152-autoconf.tar.gz"
+URL="http://www.nicemice.net/par/Par152.tar.gz"
+TARBALL="Par152.tar.gz"
+DIR="Par152"
+
+setup
+   src_download
+   src_extract
+   src_cd
+
+   setup_env
+   make -f protoMakefile
+   cp ./par ${PREFIX}/bin/
+teardown

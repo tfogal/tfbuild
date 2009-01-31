@@ -1,0 +1,14 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.lag.net/paramiko/download/paramiko-1.7.1.zip"
+TARBALL="paramiko-1.7.1.zip"
+
+setup
+src_download
+src_extract
+cd paramiko-1.7.1
+python setup.py build
+python setup.py build_clib
+python setup.py install --prefix=${PREFIX}
+teardown

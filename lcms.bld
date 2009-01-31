@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/lcms/lcms-1.17.tar.gz?modtime=1185622593&big_mirror=0"
+TARBALL="lcms-1.17.tar.gz"
+
+gnu_pkg

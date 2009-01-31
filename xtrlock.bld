@@ -1,0 +1,15 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://ftp.debian.org/debian/pool/main/x/xtrlock/xtrlock_2.0-12.tar.gz"
+TARBALL="xtrlock_2.0-12.tar.gz"
+
+setup
+src_download
+src_extract
+cd xtrlock-2.0/
+xmkmf
+cp Makefile Makefile.orig
+make DESTDIR="${PREFIX}" xtrlock
+make DESTDIR="${PREFIX}" install
+teardown

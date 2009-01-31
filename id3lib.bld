@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz?modtime=1046563200&big_mirror=0"
+TARBALL="id3lib-3.8.3.tar.gz"
+
+gnu_pkg

@@ -1,0 +1,10 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://irssi.org/files/irssi-0.8.11.tar.gz"
+TARBALL="irssi-0.8.11.tar.gz"
+
+gnu_pkg \
+	--with-gnu-ld \
+	--with-pic \
+	--with-textui

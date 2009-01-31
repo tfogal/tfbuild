@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.libsdl.org/release/SDL-1.2.13.tar.gz"
+TARBALL="SDL-1.2.13.tar.gz"
+
+gnu_pkg

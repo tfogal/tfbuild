@@ -1,0 +1,19 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://voxel.dl.sourceforge.net/sourceforge/teem/teem-1.10.0-src.tar.gz"
+TARBALL="teem-1.10.0-src.tar.gz"
+
+setup
+src_download
+src_extract
+src_cd
+
+setup_env
+cmake \
+    -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
+    -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+    .
+src_make
+src_install
+teardown

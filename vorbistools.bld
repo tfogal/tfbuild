@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.xiph.org/releases/vorbis/vorbis-tools-1.1.1.tar.gz"
+TARBALL="vorbis-tools-1.1.1.tar.gz"
+
+gnu_pkg --disable-curltest --without-curl

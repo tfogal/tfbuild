@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://easynews.dl.sourceforge.net/sourceforge/conky/conky-1.4.5.tar.bz2"
+TARBALL="conky-1.4.5.tar.bz2"
+
+gnu_pkg

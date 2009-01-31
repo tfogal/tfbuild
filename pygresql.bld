@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.pygresql.org/pub/distrib/PyGreSQL-3.8.1.tgz"
+TARBALL="PyGreSQL-3.8.1.tgz"
+
+python_pkg

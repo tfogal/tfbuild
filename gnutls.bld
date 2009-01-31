@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://mirrors.rootmode.com/ftp.gnupg.org/gnutls/gnutls-1.6.3.tar.bz2"
+TARBALL="gnutls-1.6.3.tar.bz2"
+
+gnu_pkg

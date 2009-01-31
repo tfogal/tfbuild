@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://prdownloads.sourceforge.net/freeglut/freeglut-2.4.0.tar.gz?download"
+TARBALL="freeglut-2.4.0.tar.gz"
+
+gnu_pkg --disable-warnings

@@ -1,0 +1,11 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://download.savannah.nongnu.org/releases/nmh/nmh-1.3.tar.gz"
+TARBALL="nmh-1.3.tar.gz"
+
+gnu_pkg \
+    --with-editor=/scratch/sw/bin/elvis \
+    --with-pager=less \
+    --with-smtpservers='mail.sci.utah.edu' \
+    $@

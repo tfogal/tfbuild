@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://internap.dl.sourceforge.net/sourceforge/aterm/aterm-1.0.0.tar.bz2"
+TARBALL="aterm-1.0.0.tar.bz2"
+
+gnu_pkg

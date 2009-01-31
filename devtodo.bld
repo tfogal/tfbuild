@@ -1,0 +1,16 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+# Don't need these!  Downloading from subversion...
+#URL="http://swapoff.org/files/devtodo/devtodo-0.1.19.tar.gz"
+#TARBALL="devtodo-0.1.19.tar.gz"
+
+setup
+svn co http://swapoff.org/svn/todo/trunk devtodo
+cd devtodo
+autoreconf -i
+autoreconf -i
+src_configure
+src_make
+src_install
+teardown

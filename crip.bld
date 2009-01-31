@@ -1,0 +1,8 @@
+#!/bin/sh
+# doesn't work.
+source ~/build/bf.sh
+
+URL="http://bach.dynet.com/crip/src/crip-3.9.tar.gz"
+TARBALL="crip-3.9.tar.gz"
+
+gnu_pkg

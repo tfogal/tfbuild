@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://superb-west.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.21.tar.bz2"
+TARBALL="libpng-1.2.21.tar.bz2"
+
+gnu_pkg

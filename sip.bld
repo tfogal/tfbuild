@@ -1,0 +1,19 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.riverbankcomputing.co.uk/static/Downloads/sip4/sip-4.7.9.tar.gz"
+TARBALL="sip-4.7.9.tar.gz"
+
+setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+    python ./configure.py -v "${PREFIX}" \
+        -e "${PREFIX}/include" \
+        -b "${PREFIX}/bin" \
+        -d "${PREFIX}/lib64/python2.5/site-packages" || exit 1
+    src_make
+    src_install
+teardown

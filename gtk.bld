@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.gtk.org/pub/gtk/v2.10/gtk+-2.10.14.tar.bz2"
+TARBALL="gtk+-2.10.14.tar.bz2"
+
+gnu_pkg

@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.logilab.fr/pub/pylint/pylint-0.14.0.tar.gz"
+TARBALL="pylint-0.14.0.tar.gz"
+
+python_pkg

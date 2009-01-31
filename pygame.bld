@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.pygame.org/ftp/pygame-1.8.0release.tar.gz"
+TARBALL="pygame-1.8.0release.tar.gz"
+
+python_pkg

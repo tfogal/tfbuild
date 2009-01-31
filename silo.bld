@@ -1,0 +1,14 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.llnl.gov/visit/3rd_party/silo060605.sh"
+TARBALL="silo060605.sh"
+
+setup
+src_download
+bash ${TARBALL}
+cd ${TARBALL%%.sh}
+src_configure
+src_make
+src_install
+teardown

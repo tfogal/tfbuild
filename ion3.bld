@@ -1,0 +1,15 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://iki.fi/tuomov/dl/ion-3-20080411.tar.gz"
+TARBALL="ion-3-20080411.tar.gz"
+
+setup
+src_download
+src_extract
+cd ion-3-20080411
+#src_configure
+sed -i s,PREFIX=/usr/local,PREFIX=${PREFIX}, system.mk
+src_make LUA_DIR=${PREFIX} PREFIX=${PREFIX}
+src_install
+teardown

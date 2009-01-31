@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/gc6.7.tar.gz"
+TARBALL="gc6.7.tar.gz"
+
+gnu_pkg

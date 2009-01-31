@@ -1,0 +1,17 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/matplotlib/matplotlib-0.98.5.2.tar.gz?modtime=1229668616&big_mirror=0"
+TARBALL="matplotlib-0.98.5.2.tar.gz"
+
+python_pkg
+setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+    python setup.py build --home=${PREFIX} || exit 1
+    python setup.py build_clib --home=${PREFIX} || exit 1
+    python setup.py install --home=${PREFIX} || exit 1
+teardown

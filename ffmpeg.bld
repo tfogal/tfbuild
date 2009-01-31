@@ -1,0 +1,16 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://ffmpeg.mplayerhq.hu/ffmpeg-export-snapshot.tar.bz2"
+TARBALL="ffmpeg-export-snapshot.tar.bz2"
+
+setup
+src_download
+src_extract
+cd ffmpeg-export-2008-07-07
+
+setup_env
+src_configure
+src_make
+src_install
+teardown

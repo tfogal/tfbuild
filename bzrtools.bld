@@ -1,0 +1,14 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://panoramicfeedback.com/opensource/bzrtools-0.91.0.tar.gz"
+TARBALL="bzrtools-0.91.0.tar.gz"
+
+setup
+src_download
+src_extract
+cd bzrtools
+python setup.py build
+python setup.py build_clib
+python setup.py install --prefix=${PREFIX}
+teardown

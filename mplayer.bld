@@ -1,0 +1,21 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www3.mplayerhq.hu/MPlayer/releases/MPlayer-1.0rc2.tar.bz2"
+TARBALL="MPlayer-1.0rc2.tar.bz2"
+
+setup
+src_download
+src_extract
+src_cd
+
+setup_env
+# mplayer doesn't properly use variables on the configure cmd line
+CC="gcc -m32" CFLAGS="${CFLAGS} -m32 -ffast-math" \
+    ./configure \
+        --prefix="${PREFIX}" \
+        --disable-mmx \
+        --disable-sse
+src_make
+src_install
+teardown

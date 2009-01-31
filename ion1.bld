@@ -1,0 +1,14 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://iki.fi/tuomov/dl/ion-20020207.tar.gz"
+TARBALL="ion-20020207.tar.gz"
+
+setup
+src_download
+src_extract
+cd ion-20020207/
+src_configure
+src_make
+src_install
+teardown

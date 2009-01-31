@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://ichi2.net/pyosd/pyosd-0.2.14.tar.gz"
+TARBALL="pyosd-0.2.14.tar.gz"
+
+python_pkg

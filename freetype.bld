@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://download.savannah.gnu.org/releases/freetype/freetype-2.3.5.tar.bz2"
+TARBALL="freetype-2.3.5.tar.bz2"
+
+gnu_pkg

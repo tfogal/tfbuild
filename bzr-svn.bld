@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://samba.org/~jelmer/bzr/bzr-svn-0.4.9.tar.gz"
+TARBALL="bzr-svn-0.4.9.tar.gz"
+
+python_pkg

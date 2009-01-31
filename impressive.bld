@@ -1,0 +1,15 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/impressive/Impressive-0.10.2.tar.gz?modtime=1221778549&big_mirror=0"
+TARBALL="Impressive-0.10.2.tar.gz"
+
+setup
+
+   src_download
+   src_extract
+   src_cd
+
+   cp impressive.py ${PREFIX}/bin || exit 1
+
+teardown

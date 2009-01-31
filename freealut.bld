@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://openal.org/openal_webstf/downloads/freealut-1.1.0.tar.gz"
+TARBALL="freealut-1.1.0.tar.gz"
+
+gnu_pkg

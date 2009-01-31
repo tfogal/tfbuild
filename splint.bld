@@ -1,0 +1,8 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.splint.org/downloads/splint-3.1.2.src.tgz"
+DIR="splint-3.1.2"
+TARBALL="splint-3.1.2.src.tgz"
+
+gnu_pkg

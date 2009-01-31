@@ -1,0 +1,14 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://ebeffara.free.fr/pub/rubber-1.1-20070109.tar.gz"
+TARBALL="rubber-1.1-20070109.tar.gz"
+
+setup
+src_download
+src_extract
+cd rubber-1.1
+src_configure
+src_make
+src_install
+teardown

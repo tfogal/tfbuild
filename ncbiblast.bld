@@ -1,0 +1,23 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools++/CURRENT/ncbi_cxx--Aug_27_2007.gtar.gz"
+TARBALL="ncbi_cxx--Aug_27_2007.gtar.gz"
+
+setup
+src_download
+src_extract
+cd ncbi_cxx--Aug_27_2007 || exit 1
+
+setup_env
+src_configure                     \
+    --with-bin-release            \
+    --with-lfs                    \
+    --without-suffix              \
+    --with-check                  \
+    --without-sybase              \
+    --without-bdb                 \
+    --without-gui
+src_make
+src_install
+teardown

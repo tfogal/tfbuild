@@ -1,0 +1,11 @@
+--- system.mk	2002-01-19 15:15:13.000000000 -0800
++++ newsystem.mk	2007-05-24 18:00:21.000000000 -0700
+@@ -7,7 +7,7 @@
+ ## Installation paths
+ ##
+ 
+-PREFIX=/usr/local
++PREFIX=NEWPREFIX
+ 
+ # No need to modify these usually
+ BINDIR=$(PREFIX)/bin

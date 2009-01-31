@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.cmake.org/files/v2.6/cmake-2.6.2.tar.gz"
+TARBALL="cmake-2.6.2.tar.gz"
+
+gnu_pkg

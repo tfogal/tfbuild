@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://dl.maptools.org/dl/libtiff/tiff-3.8.2.zip"
+TARBALL="tiff-3.8.2.zip"
+
+gnu_pkg

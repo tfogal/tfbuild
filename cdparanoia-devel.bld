@@ -1,0 +1,18 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10pre0.src.tgz"
+TARBALL="cdparanoia-III-10pre0.src.tgz"
+
+setup
+
+src_download
+src_extract
+cd cdparanoia-III-10pre0
+
+setup_env
+src_configure --disable-dependency-tracking
+nice -n 15 make
+src_install
+
+teardown

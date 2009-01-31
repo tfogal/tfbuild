@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.openal.org/openal_webstf/downloads/openal-0.0.8.tar.gz"
+TARBALL="openal-0.0.8.tar.gz"
+
+gnu_pkg

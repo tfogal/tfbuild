@@ -1,0 +1,36 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://subversion.tigris.org/downloads/subversion-1.5.4.tar.bz2"
+DEPURL="http://subversion.tigris.org/downloads/subversion-deps-1.5.4.tar.bz2"
+TARBALL="subversion-1.5.4.tar.bz2"
+
+setup
+src_download
+src_extract
+wget "${DEPURL}"
+tar jxf subversion-deps-1.5.4.tar.bz2
+src_cd
+
+src_configure \
+	--with-ssl \
+	--with-gnu-ld \
+	--with-pic \
+	--with-editor=vi \
+    --without-gssapi
+src_make
+src_install
+
+# Perl language bindings (giant PITA).
+make install-swig-pl-lib
+pushd subversion/bindings/swig/perl/native
+perl Makefile.PL PREFIX="${PREFIX}"
+make -j${JOBS}
+make install
+popd
+
+# Python bindings install a lot more cleanly.
+make -j${JOBS} swig-py
+make install-swig-py
+
+teardown

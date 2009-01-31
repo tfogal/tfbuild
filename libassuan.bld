@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://mirrors.rootmode.com/ftp.gnupg.org/libassuan/libassuan-1.0.3.tar.bz2"
+TARBALL="libassuan-1.0.3.tar.bz2"
+
+gnu_pkg

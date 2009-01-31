@@ -1,0 +1,16 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.netlib.org/blas/blast-forum/cblas.tgz"
+TARBALL="cblas.tgz"
+DIR="CBLAS"
+
+setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+    ln -s Makefile.LINUX Makefile.in || exit 1
+    make CBLIBDIR=${PREFIX}/lib FC=gfortran alllib || exit 1
+teardown

@@ -1,0 +1,8 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+
+URL="http://www.musicpd.org/uploads/files/mpc-0.12.1.tar.bz2"
+TARBALL="mpc-0.12.1.tar.bz2"
+
+gnu_pkg

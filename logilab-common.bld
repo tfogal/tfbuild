@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.logilab.fr/pub/common/logilab-common-0.26.1.tar.gz"
+TARBALL="logilab-common-0.26.1.tar.gz"
+
+python_pkg

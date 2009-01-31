@@ -1,0 +1,8 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+
+URL="http://www.musicpd.org/uploads/files/mpd-0.13.2.tar.bz2"
+TARBALL="mpd-0.13.2.tar.bz2"
+
+gnu_pkg

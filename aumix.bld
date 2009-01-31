@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.jpj.net/~trevor/aumix/aumix-2.8.tar.bz2"
+TARBALL="aumix-2.8.tar.bz2"
+
+gnu_pkg --without-gtk --without-gtk1

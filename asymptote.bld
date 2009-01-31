@@ -1,0 +1,20 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/asymptote/asymptote-1.58.src.tgz?big_mirror=1&filesize=1055739"
+TARBALL="asymptote-1.58.src.tgz"
+DIR="asymptote-1.58"
+
+setup
+
+src_download
+src_extract
+src_cd
+
+setup_env
+download "http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/gc-7.1.tar.gz"
+src_configure --disable-dependency-tracking
+src_make
+src_install
+
+teardown

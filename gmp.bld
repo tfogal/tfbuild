@@ -1,0 +1,22 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.gnu.org/gnu/gmp/gmp-4.2.4.tar.bz2"
+TARBALL="gmp-4.2.4.tar.bz2"
+
+setup
+src_download
+src_extract
+src_cd
+
+setup_env
+src_configure --disable-dependency-tracking $@
+src_make
+make check
+if [ $? != 0 ]; then
+    echo "Error building GMP, not installing..."
+    teardown
+    exit 1
+fi
+src_install
+teardown

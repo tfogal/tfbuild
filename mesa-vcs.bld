@@ -1,0 +1,11 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+setup
+git clone git://anongit.freedesktop.org/git/mesa/mesa
+cd mesa
+# FIXME
+#src_configure
+#src_make
+#src_install
+teardown

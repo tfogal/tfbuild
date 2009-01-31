@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.gnome.org/pub/gnome/sources/intltool/0.37/intltool-0.37.0.tar.bz2"
+TARBALL="intltool-0.37.0.tar.bz2"
+
+gnu_pkg

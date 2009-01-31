@@ -1,0 +1,11 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://pypi.python.org/packages/2.5/s/setuptools/setuptools-0.6c9-py2.5.egg#md5=fe67c3e5a17b12c0e7c541b7ea43a8e6"
+TARBALL="setuptools-0.6c9.tar.gz"
+
+setup
+    src_download
+    setup_env
+    sh setuptools-0.6c9-py2.5.egg --prefix="${PREFIX}" || exit 1
+teardown

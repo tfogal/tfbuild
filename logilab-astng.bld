@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.logilab.fr/pub/astng/logilab-astng-0.17.2.tar.gz"
+TARBALL="logilab-astng-0.17.2.tar.gz"
+
+python_pkg

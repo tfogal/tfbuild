@@ -1,0 +1,144 @@
+diff -Naur screen-4.0.2.orig/process.c screen-4.0.2.new/process.c
+--- screen-4.0.2.orig/process.c	2006-10-07 18:57:51.000000000 +0200
++++ screen-4.0.2.new/process.c	2006-10-16 08:24:07.000000000 +0200
+@@ -4580,6 +4580,8 @@
+   fore = D_fore;
+   if (fore)
+     {
++      fore->w_hasaction = 0;
++
+       /* XXX ? */
+       if (fore->w_monitor != MON_OFF)
+ 	fore->w_monitor = MON_ON;
+@@ -4746,6 +4748,7 @@
+   register struct win **pp, *p;
+   register char *cmd;
+   int l;
++  char mybuf[512];
+ 
+   s = ss = buf;
+   for (pp = ((flags & 4) && where >= 0) ? wtab + where + 1: wtab; pp < wtab + MAXWIN; pp++)
+@@ -4758,6 +4761,15 @@
+ 	continue;
+ 
+       cmd = p->w_title;
++
++      if (p->w_hasaction)
++      {
++        strcpy(mybuf, "*");
++        strncat(mybuf, p->w_title, 18);
++        strcat(mybuf, "*");				
++				cmd = mybuf;
++      }
++
+       l = strlen(cmd);
+       if (l > 20)
+         l = 20;
+@@ -4785,6 +4797,7 @@
+       s += l;
+     }
+   *s = 0;
++
+   return ss;
+ }
+ 
+diff -Naur screen-4.0.2.orig/screen.c screen-4.0.2.new/screen.c
+--- screen-4.0.2.orig/screen.c	2006-10-07 18:57:51.000000000 +0200
++++ screen-4.0.2.new/screen.c	2006-10-07 18:54:26.000000000 +0200
+@@ -234,6 +234,7 @@
+ 
+ 
+ 
++
+ /*
+  * Do this last
+  */
+@@ -2534,9 +2535,35 @@
+ 	    if (display)
+ 	      D_fore = oldfore;
+ 	  }
++
+ 	  if (*p)
+ 	    qmflag = 1;
+-	  p += strlen(p) - 1;
++
++		int status=0;
++		char *myp = p;
++		while (myp=strstr(myp, "*"))
++		{
++			char *rbuf = "= kr";
++
++			int r = ParseAttrColor(rbuf, (char *)0, 0);
++			if (r != -1 || (i == 1 && rbuf[0] == '-'))
++			{
++				if (status) r=winmsg_rend[winmsg_numrend-2];
++				winmsg_rend[winmsg_numrend] = r;
++				winmsg_rendpos[winmsg_numrend] = myp - winmsg_buf;
++				winmsg_numrend++;
++			}
++			status = !status;
++			char *temp=myp;
++			while (*temp)
++			{
++				*temp=*(temp+1);
++				temp++;
++			}
++		}
++
++		p += strlen(p) - 1;
++
+ 	  break;
+ 	case 'u':
+ 	  *p = 0;
+@@ -2971,13 +2998,28 @@
+ 		if (cv->c_layer->l_bottom == &p->w_layer)
+ 		  break;
+ 	      if (cv)
++				{
++					/* remove entry from active windows */
++
++					p->w_hasaction=0;
++
++					//RefreshHStatus();
++/* 					FILE *fp = fopen("/tmp/provaScreen", "r"); */
++
+ 		continue;	/* user already sees window */
++				}
+ #ifdef MULTIUSER
+ 	      if (!(ACLBYTE(p->w_mon_notify, D_user->u_id) & ACLBIT(D_user->u_id)))
+ 		continue;	/* user doesn't care */
+ #endif
+-	      Msg(0, "%s", MakeWinMsg(ActivityString, p, '%'));
++	      //Msg(0, "%s", MakeWinMsg(ActivityString, p, '%'));
++
++				p->w_hasaction = 1;
++
+ 	      p->w_monitor = MON_DONE;
++
++				RefreshHStatus();
++
+ 	    }
+           WindowChanged(p, 'f');
+ 	}
+diff -Naur screen-4.0.2.orig/window.c screen-4.0.2.new/window.c
+--- screen-4.0.2.orig/window.c	2003-12-05 14:45:41.000000000 +0100
++++ screen-4.0.2.new/window.c	2006-10-07 14:15:55.000000000 +0200
+@@ -598,6 +598,7 @@
+     nwin.lflag = 0;
+ #endif
+ 
++	p->w_hasaction=0;
+   p->w_type = type;
+ 
+   /* save the command line so that zombies can be resurrected */
+diff -Naur screen-4.0.2.orig/window.h screen-4.0.2.new/window.h
+--- screen-4.0.2.orig/window.h	2003-08-21 16:57:30.000000000 +0200
++++ screen-4.0.2.new/window.h	2006-10-07 14:13:09.000000000 +0200
+@@ -125,6 +125,7 @@
+ 
+ struct win 
+ {
++	int w_hasaction;
+   struct win *w_next;		/* next window */
+   int    w_type;		/* type of window */
+   void  *w_data;

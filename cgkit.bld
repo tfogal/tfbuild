@@ -1,0 +1,22 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/cgkit/cgkit-2.0.0alpha7.tar.gz?modtime=1160478250&big_mirror=0"
+TARBALL="cgkit-2.0.0alpha7.tar.gz"
+
+setup
+src_download
+src_extract
+src_cd
+
+setup_env
+
+# cgkit has an absurd requirement on scons... growl.
+pushd supportlib
+scons
+popd
+
+python setup.py build
+python setup.py build_clib
+python setup.py install --prefix=${PREFIX}
+teardown

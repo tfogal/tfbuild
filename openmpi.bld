@@ -1,0 +1,19 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.open-mpi.org/software/ompi/v1.2/downloads/openmpi-1.2.8.tar.bz2"
+TARBALL="openmpi-1.2.8.tar.bz2"
+
+gnu_pkg \
+    --enable-debug \
+    --disable-mpi-f77 \
+    --enable-pretty-print-stacktrace \
+    --enable-cxx-exceptions \
+    --enable-mpi-threads \
+    --without-gm \
+    --without-mx \
+    --without-openib \
+    --without-psm \
+    --with-pic \
+    --with-gnu-ld \
+    $@

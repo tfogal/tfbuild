@@ -1,0 +1,11 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/pywebsvcs/ZSI-2.1_a1-py2.5.egg?modtime=1193960074&big_mirror=0"
+TARBALL="ZSI-2.1_a1-py2.5.egg"
+
+setup
+    src_download
+    setup_env
+    sh ${TARBALL} --prefix="${PREFIX}" || exit 1
+teardown

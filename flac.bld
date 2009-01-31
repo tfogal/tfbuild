@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.xiph.org/releases/flac/flac-1.2.1.tar.gz"
+TARBALL="flac-1.2.1.tar.gz"
+
+gnu_pkg

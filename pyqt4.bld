@@ -1,0 +1,19 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-4.4.4.tar.gz"
+TARBALL="PyQt-x11-gpl-4.4.4.tar.gz"
+
+setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+    echo "yes" | python configure.py -v "${PREFIX}" || exit 1
+    make DESTDIR="${PREFIX}" || exit 1
+    make install DESTDIR="${PREFIX}" || exit 1
+    # PyQt4 install is dumb, doesn't use DESTDIR correctly.
+    mv ${PREFIX}/usr/lib64/python2.5/site-packages/* \
+        ${PREFIX}/lib64/python2.5/site-packages/
+teardown

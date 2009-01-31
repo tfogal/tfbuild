@@ -1,0 +1,17 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://codespeak.net/svn/psyco/dist/"
+TARBALL="unused"
+
+setup
+
+svn export ${URL} psyco-dist
+cd psyco-dist
+
+setup_env
+python setup.py build
+python setup.py build_clib
+python setup.py install --prefix=${PREFIX}
+
+teardown

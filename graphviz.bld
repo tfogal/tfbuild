@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.graphviz.org/pub/graphviz/ARCHIVE/graphviz-2.14.1.tar.gz"
+TARBALL="graphviz-2.14.1.tar.gz"
+
+gnu_pkg

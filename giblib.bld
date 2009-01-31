@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://linuxbrit.co.uk/downloads/giblib-1.2.4.tar.gz"
+TARBALL="giblib-1.2.4.tar.gz"
+
+gnu_pkg

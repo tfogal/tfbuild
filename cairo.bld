@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.cairographics.org/releases/cairo-1.6.4.tar.gz"
+TARBALL="cairo-1.6.4.tar.gz"
+
+gnu_pkg

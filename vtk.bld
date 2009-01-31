@@ -1,0 +1,38 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.vtk.org/files/release/5.0/vtk-5.0.4.tar.gz"
+TARBALL="vtk-5.0.4.tar.gz"
+DIR="VTK"
+
+setup
+src_download
+src_extract
+src_cd
+
+# hack
+MESA="/local/visitdeps/visit/mesa/7.2/linux-x86_64_gcc-4.2.1"
+
+setup_env
+for i in 1 2 ; do
+    cmake \
+        -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
+        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+        -DCMAKE_C_FLAGS:STRING="${CFLAGS}" \
+        -DCMAKE_CXX_FLAGS:STRING="${CXXFLAGS}" \
+        -DBUILD_SHARED_LIBS:BOOL=ON \
+        -DBUILD_TESTING:BOOL=OFF \
+        -DUSE_ANSI_STD_LIB:BOOL=ON \
+        -DVTK_USE_MANGLED_MESA:BOOL=ON \
+        -DVTK_USE_HYBRID:BOOL=ON \
+        -DMANGLED_MESA_INCLUDE_DIR:PATH="${MESA}/include" \
+        -DMANGLED_MESA_LIBRARY:FILEPATH="${MESA}/lib/libMesaGL.so" \
+        -DMANGLED_OSMESA_INCLUDE_DIR:PATH="${MESA}/include" \
+        -DMANGLED_OSMESA_LIBRARY:FILEPATH="${MESA}/lib/libOSMesa.so" \
+        -DVTK_WRAP_PYTHON:BOOL=ON \
+        -DVTK_USE_SYSTEM_TIFF:BOOL=ON \
+        .
+done
+src_make
+src_install
+teardown

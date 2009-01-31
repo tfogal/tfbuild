@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://download.videolan.org/pub/videolan/vlc/0.8.6d/vlc-0.8.6d.tar.bz2"
+TARBALL="vlc-0.8.6d.tar.bz2"
+
+gnu_pkg

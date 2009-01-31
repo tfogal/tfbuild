@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/pyopengl/PyOpenGL-3.0.0b2.tar.gz?modtime=1209750033&big_mirror=0"
+TARBALL="PyOpenGL-3.0.0b2.tar.gz"
+
+python_pkg

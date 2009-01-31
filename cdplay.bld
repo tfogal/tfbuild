@@ -1,0 +1,15 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.rkeene.org/files/oss/cdplay/cdplay-0.3.8.tar.gz"
+TARBALL="cdplay-0.3.8.tar.gz"
+
+setup
+src_download
+src_extract
+src_cd
+
+setup_env
+src_make
+make PREFIX=${PREFIX} install
+teardown

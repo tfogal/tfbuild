@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.gnome.org/pub/gnome/sources/libxml2/2.6/libxml2-2.6.30.tar.bz2"
+TARBALL="libxml2-2.6.30.tar.bz2"
+
+gnu_pkg

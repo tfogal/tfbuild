@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/pychecker/pychecker-0.8.17.tar.gz?modtime=1138992414&big_mirror=0"
+TARBALL="pychecker-0.8.17.tar.gz"
+
+python_pkg

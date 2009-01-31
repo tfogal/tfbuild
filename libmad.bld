@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz?modtime=1076976000&big_mirror=0"
+TARBALL="libmad-0.15.1b.tar.gz"
+
+gnu_pkg

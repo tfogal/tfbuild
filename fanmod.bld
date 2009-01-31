@@ -1,0 +1,11 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.minet.uni-jena.de/~wernicke/motifs/fanmod-linux-gtk-i386.zip"
+TARBALL="fanmod-linux-gtk-i386.zip"
+
+setup
+src_download
+src_extract
+mv ./fanmod ${PREFIX}/bin/fanmod
+teardown

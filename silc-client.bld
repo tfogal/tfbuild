@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.silcnet.org/download/client/sources/silc-client-1.1.2.tar.bz2"
+TARBALL="silc-client-1.1.2.tar.bz2"
+
+gnu_pkg --with-silc-plugin="${PREFIX}/lib/irssi"

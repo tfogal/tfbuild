@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://superb-west.dl.sourceforge.net/sourceforge/mpg123/mpg123-0.67.tar.bz2"
+TARBALL="mpg123-0.67.tar.bz2"
+
+gnu_pkg

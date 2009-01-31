@@ -1,0 +1,16 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://internap.dl.sourceforge.net/sourceforge/glew/glew-1.5.1-src.tgz"
+TARBALL="glew-1.5.1-src.tgz"
+
+setup
+    src_download
+    src_extract
+    cd glew
+
+    setup_env
+    dos2unix config/config.guess
+    make
+    src_install GLEW_DEST=${PREFIX}
+teardown

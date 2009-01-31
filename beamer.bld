@@ -1,0 +1,13 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/latex-beamer/latex-beamer-3.07.tar.gz?modtime=1173644497&big_mirror=0"
+TARBALL="latex-beamer-3.07.tar.gz"
+
+mkdir -p ${PREFIX}/tftex/tex/latex
+pushd ${PREFIX}/tftex/tex/latex || exit 1
+src_download
+src_extract
+mv latex-beamer-3.07 beamer || exit 1
+rm ${TARBALL} || exit 1
+popd

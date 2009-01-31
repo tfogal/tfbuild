@@ -1,0 +1,19 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+GCCURL="http://gcc-uk.internet.bs/releases/gcc-3.1.1/gcc-3.1.1.tar.bz2"
+SMATCHURL="http://superb-east.dl.sourceforge.net/sourceforge/smatch/diff-smatch-v.50"
+TARBALL="gcc-3.1.1.tar.bz2"
+
+setup
+wget ${GCCURL}
+src_extract
+cd gcc-3.1.1
+wget ${SMATCHURL}
+cat diff-smatch-v.50 | patch -p1
+mkdir -p build
+cd build
+../configure --prefix=${PREFIX}/smatch --enable-languages=c
+src_make
+src_install
+teardown

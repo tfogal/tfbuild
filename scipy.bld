@@ -1,0 +1,8 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/scipy/scipy-0.7.0rc2.tar.gz?modtime=1232672823&big_mirror=0"
+TARBALL="scipy-0.7.0rc2.tar.gz"
+
+export BLAS=${PREFIX}/lib
+python_pkg

@@ -1,0 +1,18 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://get.bitlbee.org/src/bitlbee-1.2.tar.gz"
+TARBALL="bitlbee-1.2.tar.gz"
+
+setup
+	src_download
+	src_extract
+	src_cd
+
+	setup_env
+	src_configure --msn=0
+	src_make
+	src_install
+	make install-etc
+	mkdir -p /var/lib/bitlbee
+teardown

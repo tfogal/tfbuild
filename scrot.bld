@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://linuxbrit.co.uk/downloads/scrot-0.8.tar.gz"
+TARBALL="scrot-0.8.tar.gz"
+
+gnu_pkg

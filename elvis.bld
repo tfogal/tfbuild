@@ -1,0 +1,14 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="ftp://ftp.cs.pdx.edu/pub/elvis/elvis-2.2_0.tar.gz"
+TARBALL="elvis-2.2_0.tar.gz"
+
+setup
+src_download
+src_extract
+cd "${TARBALL%%.tar.gz}"
+src_configure --without-x --without-xft --without-gnome --with-gcc linux
+src_make
+src_install
+teardown

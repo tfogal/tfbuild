@@ -1,0 +1,17 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/ncompress/ncompress-4.2.4.2.tar.gz?modtime=1189121763&big_mirror=0"
+TARBALL="ncompress-4.2.4.2.tar.gz"
+
+setup
+src_download
+src_extract
+src_cd
+
+ln -s Makefile.def Makefile
+src_make CFLAGS="-D_IBMR2"
+# BINDIR and MANDIR are relative to DESTDIR.
+make BINDIR="/bin" MANDIR="/man/man1" DESTDIR=${PREFIX} install
+
+teardown

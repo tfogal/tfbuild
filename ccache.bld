@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://samba.org/ftp/ccache/ccache-2.4.tar.gz"
+TARBALL="ccache-2.4.tar.gz"
+
+gnu_pkg

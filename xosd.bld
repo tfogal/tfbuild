@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/libxosd/xosd-2.2.14.tar.gz?modtime=1101287515&big_mirror=0"
+TARBALL="xosd-2.2.14.tar.gz"
+
+gnu_pkg

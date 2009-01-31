@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://ftp.gnome.org/pub/GNOME/sources/gtkmm/2.12/gtkmm-2.12.7.tar.bz2"
+TARBALL="gtkmm-2.12.7.tar.bz2"
+
+gnu_pkg

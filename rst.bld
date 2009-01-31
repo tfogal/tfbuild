@@ -1,0 +1,16 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://docutils.sf.net/docutils-snapshot.tgz"
+TARBALL="docutils-snapshot.tgz"
+
+setup
+src_download
+src_extract
+cd docutils
+
+setup_env
+python setup.py build
+python setup.py build_clib
+python setup.py install --prefix=${PREFIX}
+teardown

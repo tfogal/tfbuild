@@ -1,0 +1,27 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/bsdcalendar/bsdcalendar-0.9.tar.bz2?modtime=1038441600&big_mirror=0"
+TARBALL="bsdcalendar-0.9.tar.bz2"
+
+setup
+    src_download
+    src_extract
+    cd calendar
+    echo "patching ..."
+    patch -p0 <<EOF
+--- calendar.h  2008-11-04 09:39:18.000000000 -0700
++++ calendar.h.new      2008-11-04 09:39:34.000000000 -0700
+@@ -34,6 +34,7 @@
+  * SUCH DAMAGE.
+  */
+
++#include <sys/uio.h>
+
+ #ifndef SECSPERDAY
+ #define SECSPERDAY (60*60*24)
+EOF
+    make
+    cp calendar ${PREFIX}/bin
+    cp calendar.1 ${PREFIX}/man/man1
+teardown

@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.xiph.org/releases/theora/libtheora-1.0beta1.tar.gz"
+TARBALL="libtheora-1.0beta1.tar.gz"
+
+gnu_pkg
