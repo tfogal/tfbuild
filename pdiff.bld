@@ -1,0 +1,24 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/pdiff/PerceptualDiff-1.0.2.tar.gz?modtime=1215645433&big_mirror=0"
+TARBALL="PerceptualDiff-1.0.2.tar.gz"
+
+setup
+src_download
+src_extract
+src_cd
+setup_env
+
+for i in 1 2 ; do
+    cmake \
+        -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
+        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON        \
+        -DCMAKE_C_FLAGS:STRING="${CFLAGS}"      \
+        -DCMAKE_CXX_FLAGS:STRING="${CXXFLAGS}"  \
+        -DFREEIMAGE_LIBRARY:PATH="${PREFIX}/lib/libfreeimageplus.so" \
+        .
+done
+src_make
+src_install
+teardown
