@@ -66,7 +66,7 @@ function src_install()
 function setup()
 {
 	mkdir -p ${PREFIX}/tmp/work
-	pushd ${PREFIX}/tmp/work
+	pushd ${PREFIX}/tmp/work || exit 1
 }
 function teardown()
 {
