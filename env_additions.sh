@@ -39,15 +39,17 @@ function fixpath {
     echo ${v}
 }
 
-LD_LIBRARY_PATH=$(fixpath "${LD_LIBRARY_PATH}")
-MANPATH=$(fixpath "${MANPATH}")
-# fixpath fails for paths that are already good -- without redundant ":"'s,
-# etc.
-# PATH=$(fixpath "${PATH}")
-PKG_CONFIG_PATH=$(fixpath "${PKG_CONFIG_PATH}")
-PERL5LIB=$(fixpath "${PERL5LIB}")
-PYTHONPATH=$(fixpath "${PYTHONPATH}")
-TEXINPUTS=$(fixpath "${TEXINPUTS}")
+if test `uname` = "Linux" ; then
+    LD_LIBRARY_PATH=$(fixpath "${LD_LIBRARY_PATH}")
+    MANPATH=$(fixpath "${MANPATH}")
+    # fixpath fails for paths that are already good -- without redundant ":"'s,
+    # etc.
+    # PATH=$(fixpath "${PATH}")
+    PKG_CONFIG_PATH=$(fixpath "${PKG_CONFIG_PATH}")
+    PERL5LIB=$(fixpath "${PERL5LIB}")
+    PYTHONPATH=$(fixpath "${PYTHONPATH}")
+    TEXINPUTS=$(fixpath "${TEXINPUTS}")
+fi
 
 export ACLOCAL
 export LD_LIBRARY_PATH
