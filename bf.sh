@@ -10,7 +10,12 @@ function download()
         echo "Download _what_?"
         exit 1;
     fi
-    wget -nv "$@"
+    # Thanks, Darwin.
+    if test `uname` = "Darwin" ; then
+        curl -LO "$@"
+    else
+        wget -nv "$@"
+    fi
 }
 function src_download()
 {
