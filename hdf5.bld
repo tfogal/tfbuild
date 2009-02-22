@@ -1,7 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="ftp://ftp.hdfgroup.org/HDF5/current16/src/hdf5-1.6.8.tar.gz"
-TARBALL="hdf5-1.6.8.tar.gz"
+URL="ftp://ftp.hdfgroup.org/HDF5/current/src/hdf5-1.8.2.tar.gz"
+TARBALL="hdf5-1.8.2.tar.gz"
 
 gnu_pkg
