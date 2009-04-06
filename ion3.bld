@@ -1,15 +1,18 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://iki.fi/tuomov/dl/ion-3-20080411.tar.gz"
-TARBALL="ion-3-20080411.tar.gz"
+#URL="http://iki.fi/tuomov/dl/ion-3-20080411.tar.gz"
+URL="http://iki.fi/tuomov/dl/ion-3-20090110.tar.gz"
+TARBALL="ion-3-20090110.tar.gz"
 
+echo "bleh .. doesn't work right now.  lua deps need some special vars set."
 setup
 src_download
 src_extract
-cd ion-3-20080411
+cd "${TARBALL%%.tar.gz}"
 #src_configure
-sed -i s,PREFIX=/usr/local,PREFIX=${PREFIX}, system.mk
-src_make LUA_DIR=${PREFIX} PREFIX=${PREFIX}
+sed -i s,PREFIX=/usr/local,PREFIX=${PREFIX}, system.mk || exit 1
+src_make LUA_DIR=/usr PREFIX=${PREFIX} || exit 1
+#src_make LUA_DIR=${PREFIX} PREFIX=${PREFIX} || exit 1
 src_install
 teardown
