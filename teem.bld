@@ -13,6 +13,7 @@ setup_env
 cmake \
     -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+    -DBUILD_SHARED_LIBS:BOOL=ON \
     .
 src_make
 src_install
