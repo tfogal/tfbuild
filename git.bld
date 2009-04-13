@@ -1,10 +1,10 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://kernel.org/pub/software/scm/git/git-1.6.0.4.tar.bz2"
-MAN="http://kernel.org/pub/software/scm/git/git-manpages-1.6.0.4.tar.bz2"
-TARBALL="git-1.6.0.4.tar.bz2"
-MAN_TARBALL="git-manpages-1.6.0.4.tar.bz2"
+URL="http://kernel.org/pub/software/scm/git/git-1.6.2.3.tar.bz2"
+MAN="http://kernel.org/pub/software/scm/git/git-manpages-1.6.2.3.tar.bz2"
+TARBALL="git-1.6.2.3.tar.bz2"
+MAN_TARBALL="git-manpages-1.6.2.3.tar.bz2"
 
 setup
 src_download
@@ -17,6 +17,7 @@ src_install
 teardown
 
 # ... and get the manpages too.
+mkdir -p "${PREFIX}/man"
 pushd "${PREFIX}/man"
 download ${MAN}
 tar jxf "${MAN_TARBALL}"
