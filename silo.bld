@@ -1,14 +1,12 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://www.llnl.gov/visit/3rd_party/silo060605.sh"
-TARBALL="silo060605.sh"
+URL="https://wci.llnl.gov/codes/silo/silo-4.7/silo-4.7.tar.gz"
+TARBALL="silo-4.7.tar.gz"
 
-setup
-src_download
-bash ${TARBALL}
-cd ${TARBALL%%.sh}
-src_configure
-src_make
-src_install
-teardown
+gnu_pkg               \
+    --disable-fortran \
+    --disable-browser \
+    --disable-silex   \
+    --with-pic        \
+    --without-qt
