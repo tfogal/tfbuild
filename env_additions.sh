@@ -10,7 +10,18 @@ ACLOCAL="aclocal -I ${PREFIX}/share/aclocal"
 LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${PREFIX}/lib64"
 LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${PREFIX}/lib"
 MANPATH="${MANPATH}:${PREFIX}/man:${PREFIX}/share/man"
-PERL5LIB="${PREFIX}/lib/perl5/site_perl:${PERL5LIB}"
+# I hate you perl.
+# They've suddenly decided that putting a *full* version # in their
+# user library path is a good idea.  This makes writing a general
+# solution `fun'.
+perlvers=$(perl --version |   \
+           head -n 2 |        \
+           tail -n 1 |        \
+           awk '{print $4}' | \
+           cut -dv -f2)
+# With perl5.8, this used to be `${PREFIX}/lib/perl5/site_perl'.  Might want to
+# try that setting if this setting is broken.
+PERL5LIB="${PREFIX}/lib/perl/${perlvers}/:${PERL5LIB}"
 PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib64/python2.5/site-packages"
 PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib/python2.5/site-packages"
