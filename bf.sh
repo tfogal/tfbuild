@@ -28,6 +28,10 @@ function src_download()
 
 function src_extract()
 {
+    # If the client script didn't give a tarball, try to supply one.
+    if test -z "${TARBALL}" ; then
+        TARBALL=$(basename ${URL})
+    fi
     # chop off the common extension.  If it changes, thats the right type.
     if [ "${TARBALL%%bz2}" != "${TARBALL}" ] ; then
         # Bzip2.
