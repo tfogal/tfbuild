@@ -119,6 +119,40 @@ function gnu_pkg()
     teardown
 }
 
+function cmake_pkg()
+{
+    setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+    # CMake has this annoying property that an initial run can
+    # determine it *should look* for some optional libraries, but not
+    # actually look for them.  So our first run figures out the basics,
+    # and a second one makes sure that all optional libraries (that is,
+    # libraries which aren't searched unless some pkg-specific BOOL is
+    # ON) are searched for.
+    for i in 1 2 ; do
+        args="."
+        if test -n "$@" ; then
+          args="$@ ."
+        fi
+
+        cmake \
+            -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
+            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON        \
+            -DCMAKE_C_FLAGS:STRING="${CFLAGS}"      \
+            -DCMAKE_CXX_FLAGS:STRING="${CXXFLAGS}"  \
+            -DBUILD_SHARED_LIBS:BOOL=ON \
+            ${args} || exit 1
+    done
+
+    src_make
+    src_install
+    teardown
+}
+
 function python_pkg()
 {
     setup
