@@ -7,10 +7,12 @@ TARBALL="openmpi-${VER}.tar.bz2"
 
 gnu_pkg \
     --enable-debug \
+    --enable-memchecker \
     --disable-mpi-f77 \
     --enable-pretty-print-stacktrace \
     --enable-cxx-exceptions \
     --enable-mpi-threads \
+    --with-valgrind=${PREFIX} \
     --without-gm \
     --without-mx \
     --without-openib \
