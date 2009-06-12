@@ -104,9 +104,9 @@ function src_cd()
 function setup_env()
 {
     # Add our custom path to the build configuration flags.
-    export CFLAGS="${CFLAGS} -m64 -fPIC -I${PREFIX}/include"
-    export CXXFLAGS="${CXXFLAGS} -m64 -fPIC -I${PREFIX}/include"
-    export LDFLAGS="${LDFLAGS} -m64 -L${PREFIX}/lib64 -L${PREFIX}/lib"
+    export CFLAGS="${CFLAGS} -fPIC -I${PREFIX}/include"
+    export CXXFLAGS="${CXXFLAGS}  -fPIC -I${PREFIX}/include"
+    export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib64 -L${PREFIX}/lib"
 }
 
 function gnu_pkg()
