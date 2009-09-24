@@ -21,7 +21,7 @@ perlvers=$(perl --version |   \
            cut -dv -f2)
 # With perl5.8, this used to be `${PREFIX}/lib/perl5/site_perl'.  Might want to
 # try that setting if this setting is broken.
-PERL5LIB="${PREFIX}/lib/perl/${perlvers}/:${PERL5LIB}"
+PERL5LIB="${PREFIX}/lib64/perl5/${perlvers}/:${PERL5LIB}:${PREFIX}/lib/perl/${perlvers}/:${PREFIX}/lib64/perl5/site_perl:${PERL5LIB}"
 PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib64/python2.5/site-packages"
 PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib/python2.5/site-packages"
