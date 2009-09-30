@@ -30,7 +30,7 @@ TEXINPUTS="${TEXINPUTS}:${PREFIX}/tftex"
 # ugh.  do some hackery to remove duplicates from our path specifications.
 # This happens when using programs like screen; the shell we logged into adds a
 # path, starting an xterm would add paths, and then each shell-in-a-screen is a
-# login shell, so would also add it's own paths.
+# login shell, so would also add its own paths.
 function fixpath {
     # we need to separate the paths by newlines for sort and uniq to work
     pathlist=$(echo "${@}" | tr : \\n)
