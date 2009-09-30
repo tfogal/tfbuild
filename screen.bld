@@ -1,18 +1,16 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://mirrors.usc.edu/pub/gnu/screen/screen-4.0.2.tar.gz"
-TARBALL="screen-4.0.2.tar.gz"
+URL="http://mirrors.usc.edu/pub/gnu/screen/screen-4.0.3.tar.gz"
 
 setup
-    rm -fr screen
-    git clone git://git.sv.gnu.org/screen.git screen
-    cd screen/src
-    patch -p1 < ${HOME}/build/patches/screen-*.patch
+  src_download
+  src_extract
+  src_cd
+  patch -p1 < ${HOME}/build/patches/screen-*.patch
 
-    setup_env
-    ./autogen.sh
-    src_configure
-    src_make
-    src_install
+  setup_env
+  src_configure --disable-dependency-tracking $@
+  src_make
+  src_install
 teardown
