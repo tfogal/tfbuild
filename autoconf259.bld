@@ -4,4 +4,4 @@ source ~/build/bf.sh
 URL="http://ftp.gnu.org/gnu/autoconf/autoconf-2.59.tar.bz2"
 TARBALL="autoconf-2.59.tar.bz2"
 
-gnu_pkg --program-suffix=259
+gnu_pkg --program-suffix=259 --datadir="${PREFIX}/share259"
