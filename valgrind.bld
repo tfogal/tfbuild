@@ -1,7 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://valgrind.org/downloads/valgrind-3.4.1.tar.bz2"
-TARBALL="valgrind-3.4.1.tar.bz2"
+URL="http://valgrind.org/downloads/valgrind-3.5.0.tar.bz2"
+#TARBALL="valgrind-3.5.0.tar.bz2"
 
 gnu_pkg --enable-only64bit
