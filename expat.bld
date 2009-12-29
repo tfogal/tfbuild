@@ -1,7 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://superb-east.dl.sourceforge.net/sourceforge/expat/expat-2.0.1.tar.gz"
+URL="http://downloads.sourceforge.net/project/expat/expat/2.0.1/expat-2.0.1.tar.gz?use_mirror=softlayer"
 TARBALL="expat-2.0.1.tar.gz"
 
 gnu_pkg
