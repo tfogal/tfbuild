@@ -18,7 +18,8 @@ src_configure      \
   --with-gnu-ld    \
   --with-pic       \
   --with-editor=vi \
-  --without-gssapi
+  --without-apxs   \
+  --without-serf
 src_make
 src_install
 
