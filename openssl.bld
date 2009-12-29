@@ -1,13 +1,13 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://www.openssl.org/source/openssl-0.9.8e.tar.gz"
-TARBALL="openssl-0.9.8e.tar.gz"
+URL="http://www.openssl.org/source/openssl-0.9.8l.tar.gz"
 
 setup
 src_download
 src_extract
-cd openssl-0.9.8e
+setup_env
+cd openssl-0.9.8l
 ./config --prefix=${PREFIX} --openssldir=${PREFIX}/openssl
 src_make
 src_install
