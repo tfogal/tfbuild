@@ -166,7 +166,7 @@ function python_pkg()
 
     setup_env
     python setup.py build || exit 1
-    python setup.py build_clib --prefix=${PREFIX} || exit 1
+    python setup.py build_clib || exit 1
     python setup.py install --prefix=${PREFIX} || exit 1
     teardown
 }
