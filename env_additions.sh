@@ -23,8 +23,9 @@ perlvers=$(perl --version |   \
 # try that setting if this setting is broken.
 PERL5LIB="${PREFIX}/lib64/perl5/${perlvers}/:${PERL5LIB}:${PREFIX}/lib/perl/${perlvers}/:${PREFIX}/lib64/perl5/site_perl:${PERL5LIB}"
 PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
-PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib64/python2.5/site-packages"
-PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib/python2.5/site-packages"
+PYVER=$(python -V 2>&1 | awk '{print $2}')
+PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib64/python${PYVER}/site-packages"
+PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib/python${PYVER}/site-packages"
 TEXINPUTS="${TEXINPUTS}:${PREFIX}/tftex"
 
 # ugh.  do some hackery to remove duplicates from our path specifications.
