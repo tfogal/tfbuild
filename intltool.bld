@@ -1,7 +1,6 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="ftp://ftp.gnome.org/pub/gnome/sources/intltool/0.37/intltool-0.37.0.tar.bz2"
-TARBALL="intltool-0.37.0.tar.bz2"
+URL="http://edge.launchpad.net/intltool/trunk/0.41.0/+download/intltool-0.41.0.tar.gz"
 
 gnu_pkg
