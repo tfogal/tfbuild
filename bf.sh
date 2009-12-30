@@ -43,7 +43,7 @@ function src_extract()
         # zip
         unzip "${TARBALL}"
     else
-        echo "Unknown file type!"
+        printf "Unknown file type for file '%s'" ${TARBALL}
         exit 1
     fi
 }
