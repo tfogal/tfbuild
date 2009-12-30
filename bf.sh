@@ -104,9 +104,10 @@ function src_cd()
 function setup_env()
 {
     # Add our custom path to the build configuration flags.
-    export CFLAGS="${CFLAGS} -fPIC -I${PREFIX}/include"
-    export CXXFLAGS="${CXXFLAGS}  -fPIC -I${PREFIX}/include"
-    export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib64 -L${PREFIX}/lib"
+    local="-march=native -mtune=native"
+    export CFLAGS="${CFLAGS} -fPIC ${local} -I${PREFIX}/include"
+    export CXXFLAGS="${CXXFLAGS} -fPIC ${local} -I${PREFIX}/include"
+    export LDFLAGS="${LDFLAGS} ${local} -L${PREFIX}/lib64 -L${PREFIX}/lib"
 }
 
 function gnu_pkg()
