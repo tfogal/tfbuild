@@ -1,7 +1,7 @@
 #!/bin/sh
 # Build functionality
 
-PREFIX="${HOME}/sw"
+PREFIX="${HOME}/$(hostname)"
 JOBS=4
 
 function download()
