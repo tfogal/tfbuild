@@ -50,6 +50,9 @@ function src_extract()
 
 function src_configure()
 {
+    # Make sure the aclocal dir we set exists.
+    mkdir -p "${PREFIX}/share/aclocal"
+
     ./configure $@ --prefix="${PREFIX}"
     if [ $? != 0 ]; then
         echo "Configuration failed!  Bailing out..."
