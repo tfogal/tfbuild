@@ -23,7 +23,14 @@ perlvers=$(perl --version |   \
 # try that setting if this setting is broken.
 PERL5LIB="${PREFIX}/lib64/perl5/${perlvers}/:${PERL5LIB}:${PREFIX}/lib/perl/${perlvers}/:${PREFIX}/lib64/perl5/site_perl:${PERL5LIB}"
 PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
-PYVER=$(python -V 2>&1 | awk '{print $2}')
+# I also hate you, python.
+# Some python installs use the full version: "python2.5.1".  Sometimes they
+# just use the short one: "python2.5"  My current install is using the latter,
+# but if this breaks for you, you might want to try just:
+#   PYVER=$(python -V 2>&1 | awk '{print $2}')
+PYMAJOR=$(python -V 2>&1 | awk '{print $2}' | cut -d . -f1)
+PYMINOR=$(python -V 2>&1 | awk '{print $2}' | cut -d . -f2)
+PYVER="${PYMAJOR}.${PYMINOR}"
 PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib64/python${PYVER}/site-packages"
 PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib/python${PYVER}/site-packages"
 TEXINPUTS="${TEXINPUTS}:${PREFIX}/tftex"
