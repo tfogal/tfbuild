@@ -1,16 +1,32 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://ffmpeg.mplayerhq.hu/ffmpeg-export-snapshot.tar.bz2"
+URL="http://ffmpeg.org/releases/ffmpeg-export-snapshot.tar.bz2"
+DIR="ffmpeg-export-2010-02-09"
 TARBALL="ffmpeg-export-snapshot.tar.bz2"
 
 setup
 src_download
 src_extract
-cd ffmpeg-export-2008-07-07
+src_cd
 
 setup_env
-src_configure
+src_configure \
+  --enable-gpl \
+  --enable-nonfree \
+  --enable-postproc \
+  --enable-avfilter \
+  --enable-avfilter-lavf \
+  --enable-x11grab \
+  --enable-libvorbis \
+  --enable-libfaad \
+  --enable-libgsm \
+  --enable-libopenjpeg \
+  --enable-libschroedinger \
+  --enable-libspeex \
+  --enable-libvorbis \
+  --enable-libxvid \
+  --disable-debug
 src_make
 src_install
 teardown
