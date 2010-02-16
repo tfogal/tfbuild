@@ -1,8 +1,8 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-VER="1.3.3"
-URL="http://www.open-mpi.org/software/ompi/v1.3/downloads/openmpi-${VER}.tar.bz2"
+VER="1.4.1"
+URL="http://www.open-mpi.org/software/ompi/v1.4/downloads/openmpi-${VER}.tar.bz2"
 
 gnu_pkg \
     --enable-debug \
