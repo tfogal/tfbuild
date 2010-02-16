@@ -1,8 +1,8 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://downloads.sourceforge.net/cgkit/cgkit-2.0.0alpha7.tar.gz?modtime=1160478250&big_mirror=0"
-TARBALL="cgkit-2.0.0alpha7.tar.gz"
+URL="http://downloads.sourceforge.net/cgkit/cgkit-2.0.0alpha9.tar.gz?modtime=1160478250&big_mirror=0"
+TARBALL="cgkit-2.0.0alpha9.tar.gz"
 
 setup
 src_download
