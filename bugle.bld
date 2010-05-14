@@ -1,7 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://downloads.sourceforge.net/bugle/bugle-0.0.20090311.tar.bz2?use_mirror=voxel"
-TARBALL="bugle-0.0.20090311.tar.bz2"
+URL="http://downloads.sourceforge.net/bugle/bugle-0.0.20091026.tar.bz2?use_mirror=voxel"
+TARBALL="bugle-0.0.20091026.tar.bz2"
 
 gnu_pkg
