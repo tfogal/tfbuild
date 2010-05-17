@@ -10,5 +10,5 @@ setup
     src_cd
     setup_env
     src_make
-    make install DESTDIR="${PREFIX}" || exit 1
+    make install BIN="${PREFIX}/bin" || exit 1
 teardown
