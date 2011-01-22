@@ -1,7 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://mirrors.usc.edu/pub/gnu/screen/screen-4.0.3.tar.gz"
+URL="http://ftp.gnu.org/gnu/screen/screen-4.0.3.tar.gz"
 
 setup
   src_download
