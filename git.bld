@@ -1,7 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-VERSION="1.7.0.2"
+VERSION="1.7.3.4"
 URL="http://kernel.org/pub/software/scm/git/git-${VERSION}.tar.bz2"
 MAN="http://kernel.org/pub/software/scm/git/git-manpages-${VERSION}.tar.bz2"
 TARBALL="git-${VERSION}.tar.bz2"
