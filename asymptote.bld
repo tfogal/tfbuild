@@ -1,9 +1,10 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://downloads.sourceforge.net/asymptote/asymptote-1.58.src.tgz?big_mirror=1&filesize=1055739"
-TARBALL="asymptote-1.58.src.tgz"
-DIR="asymptote-1.58"
+VERSION=2.03
+URL="http://downloads.sourceforge.net/asymptote/asymptote-${VERSION}.src.tgz?big_mirror=1&filesize=1055739"
+TARBALL="asymptote-${VERSION}.src.tgz"
+DIR="asymptote-${VERSION}"
 
 setup
 
