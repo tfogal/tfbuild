@@ -12,9 +12,9 @@ function download()
     fi
     # Thanks, Darwin.
     if test `uname` = "Darwin" ; then
-        curl -kLO "$@"
+        curl -kLO "$@" || exit 1
     else
-        wget -nv "$@"
+        wget -nv "$@" || exit 1
     fi
 }
 function src_download()
