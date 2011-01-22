@@ -3,6 +3,10 @@ source ~/build/bf.sh
 
 URL="ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf.tar.gz"
 TARBALL="netcdf.tar.gz"
-DIR="netcdf-4.0"
+DIR="netcdf-4.1.1"
 
-gnu_pkg --enable-shared
+gnu_pkg \
+  --enable-shared \
+  --disable-dap \
+  --disable-fortran \
+  --with-pic
