@@ -1,0 +1,7 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://downloads.sourceforge.net/project/asciidoc/asciidoc/8.5.3/asciidoc-8.5.3.tar.gz?use_mirror=voxel"
+TARBALL="asciidoc-8.5.3.tar.gz"
+
+gnu_pkg
