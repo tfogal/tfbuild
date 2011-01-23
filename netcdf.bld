@@ -6,7 +6,10 @@ TARBALL="netcdf.tar.gz"
 DIR="netcdf-4.1.1"
 
 gnu_pkg \
-  --enable-shared \
+  CC=mpicc \
+  --with-hdf5=${PREFIX} \
+  --enable-c-only \
+  --enable-netcdf4 \
   --disable-dap \
-  --disable-fortran \
+  --enable-shared \
   --with-pic
