@@ -1,18 +1,8 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-alpha9.8.src.tgz"
-TARBALL="cdparanoia-III-alpha9.8.src.tgz"
+URL="http://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz"
+TARBALL="cdparanoia-III-10.2.src.tgz"
+DIR="cdparanoia-III-10.2"
 
-setup
-
-src_download
-src_extract
-cd cdparanoia-III-alpha9.8
-
-setup_env
-src_configure --disable-dependency-tracking
-src_make
-src_install
-
-teardown
+gnu_pkg
