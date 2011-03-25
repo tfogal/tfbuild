@@ -1,0 +1,6 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://buildbot.googlecode.com/files/buildbot-slave-0.8.3.tar.gz"
+
+python_pkg
