@@ -1,7 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://tmrc.mit.edu/mirror/twisted/Twisted/9.0/Twisted-9.0.0.tar.bz2#md5=93fc2756a09ffd1350c046cc940e4311"
-TARBALL="Twisted-9.0.0.tar.bz2"
+URL="http://pypi.python.org/packages/source/T/Twisted/Twisted-11.0.0.tar.bz2"
+TARBALL="Twisted-11.0.0.tar.bz2"
 
 python_pkg
