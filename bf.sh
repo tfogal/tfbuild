@@ -1,8 +1,8 @@
 #!/bin/sh
 # Build functionality
 
-PREFIX="${HOME}/$(hostname)"
-JOBS=4
+PREFIX="${HOME}/sw"
+JOBS=8
 
 function download()
 {
@@ -42,6 +42,8 @@ function src_extract()
     elif [ "${TARBALL%%zip}" != "${TARBALL}" ] ; then
         # zip
         unzip "${TARBALL}"
+    elif test "${TARBALL%%xz}" != "${TARBALL}" ; then
+        tar Jxf "${TARBALL}"
     else
         printf "Unknown file type for file '%s'" ${TARBALL}
         exit 1
