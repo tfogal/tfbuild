@@ -8,9 +8,11 @@ setup
   src_extract
   src_cd
   patch -p1 < ${HOME}/build/patches/screen-*.patch
+  patch -p0 -i ${HOME}/build/patches/patch-pty.c
 
   setup_env
   src_configure --disable-dependency-tracking $@
   src_make
   src_install
+  cp ./etc/screenrc ${PREFIX}/etc/screenrc
 teardown
