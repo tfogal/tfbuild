@@ -8,7 +8,21 @@ setup
 src_download
 src_extract
 cd "${TARBALL%%.tar.gz}"
+download \
+  http://ftp.de.debian.org/debian/pool/main/e/elvis/elvis_2.2.0-11.1.diff.gz
+gunzip elvis_2.2.0-11.1.diff.gz || exit 1
+patch -p1 -i elvis_2.2.0-11.1.diff || exit 1
+patch -p1 -i debian/patches/getline
 src_configure --without-x --without-xft --without-gnome --with-gcc linux
 src_make
 src_install
 teardown
+
+mkdir -p ~/.elvis
+cd ~/
+if ! test -f .elvisrc ; then
+  download http://ubuntuone.com/22cfAsVDkVIz7veykaMw8r
+  mv 22cfAsVDkVIz7veykaMw8r .elvisrc
+else
+  echo ".elvisrc already exists; not overwriting it."
+fi
