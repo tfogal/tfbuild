@@ -1,12 +1,13 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="https://wci.llnl.gov/codes/silo/silo-4.7/silo-4.7.tar.gz"
-TARBALL="silo-4.7.tar.gz"
+URL="https://wci.llnl.gov/codes/silo/silo-4.9.1/silo-4.9.1-bsd.tar.gz"
 
 gnu_pkg               \
     --disable-fortran \
     --disable-browser \
     --disable-silex   \
+    --enable-shared   \
     --with-pic        \
+    --with-gnu-ld     \
     --without-qt
