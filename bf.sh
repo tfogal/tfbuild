@@ -129,14 +129,8 @@ function gnu_pkg()
     teardown
 }
 
-function cmake_pkg()
+function cmake_configure()
 {
-    setup
-    src_download
-    src_extract
-    src_cd
-
-    setup_env
     # CMake has this annoying property that an initial run can
     # determine it *should look* for some optional libraries, but not
     # actually look for them.  So our first run figures out the basics,
@@ -157,6 +151,17 @@ function cmake_pkg()
             -DBUILD_SHARED_LIBS:BOOL=ON \
             ${args} || exit 1
     done
+}
+
+function cmake_pkg()
+{
+    setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+    cmake_configure
 
     src_make
     src_install
