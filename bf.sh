@@ -3,6 +3,9 @@
 
 PREFIX="${HOME}/sw"
 JOBS=8
+if test $(uname) == "Linux" ; then
+  JOBS=$(cat /proc/cpuinfo | grep -i processor | wc -l)
+fi
 
 function download()
 {
@@ -66,9 +69,9 @@ function src_make()
 {
     # don't add jobs option if not set
     if [ -z "${JOBS}" ]; then
-        nice -n 15 make $@
+        nice -n 15 make $@ || exit 1
     else
-        nice -n 15 make -j${JOBS} $@
+        nice -n 15 make -j${JOBS} $@ || exit 1
     fi
 }
 
