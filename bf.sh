@@ -112,7 +112,7 @@ function setup_env()
     local="-march=native -mtune=native"
     export CFLAGS="${CFLAGS} -fPIC ${local} -I${PREFIX}/include"
     export CXXFLAGS="${CXXFLAGS} -fPIC ${local} -I${PREFIX}/include"
-    export LDFLAGS="${LDFLAGS} ${local} -L${PREFIX}/lib64 -L${PREFIX}/lib"
+    export LDFLAGS="${LDFLAGS} -fPIC ${local} -L${PREFIX}/lib64 -L${PREFIX}/lib"
 }
 
 function gnu_pkg()
