@@ -10,4 +10,5 @@ gnu_pkg               \
     --enable-shared   \
     --with-pic        \
     --with-gnu-ld     \
+    --enable-install-lite-headers \
     --without-qt
