@@ -1,0 +1,18 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.dyninst.org/sites/default/files/downloads/dyninst/8.1.2/ParseAPI-8.1.2.tgz"
+
+setup
+    src_download || exit 1
+    src_extract || exit 1
+    src_cd || exit 1
+
+    setup_env 
+    src_configure \
+      --with-libdwarf-incdir=${PREFIX}/include \
+      --with-libdwarf-libdir=${PREFIX}/lib \
+      || exit 1
+    src_make || exit 1
+    src_install || exit 1
+teardown
