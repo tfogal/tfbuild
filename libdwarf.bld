@@ -1,0 +1,18 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.prevanders.net/libdwarf-20140208.tar.gz"
+REPO="https://github.com/tfogal/libdwarf.git"
+DIR="libdwarf"
+
+setup
+  git clone --depth 1 ${REPO} || exit 1
+  src_cd || exit 1
+  setup_env
+  src_configure --enable-shared || exit 1
+  src_make dd || exit 1
+  # libdwarf's install is broken.
+  cp libdwarf/libdwarf.so ${PREFIX}/lib || exit 1
+  cp libdwarf/*.h ${PREFIX}/include/ || exit 1
+  exit 1
+teardown
