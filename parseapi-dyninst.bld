@@ -15,4 +15,6 @@ setup
       || exit 1
     src_make || exit 1
     src_install || exit 1
+    # Dyninst marks all of its damn header files as executable for some reason.
+    chmod a-x ${PREFIX}/include/*.h
 teardown
