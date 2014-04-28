@@ -9,7 +9,7 @@ setup
   git clone --depth 1 ${REPO} || exit 1
   src_cd || exit 1
   setup_env
-  src_configure --enable-shared || exit 1
+  src_configure CFLAGS="-ggdb3" --enable-shared || exit 1
   src_make dd || exit 1
   # libdwarf's install is broken.
   cp libdwarf/libdwarf.so ${PREFIX}/lib || exit 1
