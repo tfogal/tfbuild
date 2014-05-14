@@ -2,19 +2,20 @@
 source ~/build/bf.sh
 
 URL="http://www.dyninst.org/sites/default/files/downloads/dyninst/8.1.2/ParseAPI-8.1.2.tgz"
+REPO="https://github.com/tfogal/dyninst.git"
+DIR="dyninst"
 
 setup
-    src_download || exit 1
-    src_extract || exit 1
-    src_cd || exit 1
+  git clone --depth 1 ${REPO} || exit 1
+  src_cd || exit 1
+  setup_env
 
-    setup_env 
-    src_configure \
-      --with-libdwarf-incdir=${PREFIX}/include \
-      --with-libdwarf-libdir=${PREFIX}/lib \
-      || exit 1
-    src_make || exit 1
-    src_install || exit 1
-    # Dyninst marks all of its damn header files as executable for some reason.
-    chmod a-x ${PREFIX}/include/*.h
+  cmake_configure \
+    -DLIBDWARF_INCLUDE_DIR:PATH=${PREFIX}/include \
+    -DCMAKE_BUILD_TYPE:STRING="Debug" \
+    $@ || exit 1
+  src_make || exit 1
+  src_install || exit 1
+  # Dyninst marks all of its damn header files as executable for some reason.
+  chmod a-x ${PREFIX}/include/*.h
 teardown
