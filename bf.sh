@@ -141,18 +141,13 @@ function cmake_configure()
     # libraries which aren't searched unless some pkg-specific BOOL is
     # ON) are searched for.
     for i in 1 2 ; do
-        args="."
-        if test -n "$@" ; then
-          args="$@ ."
-        fi
-
         cmake \
             -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
             -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON        \
             -DCMAKE_C_FLAGS:STRING="${CFLAGS}"      \
             -DCMAKE_CXX_FLAGS:STRING="${CXXFLAGS}"  \
             -DBUILD_SHARED_LIBS:BOOL=ON \
-            ${args} || exit 1
+            $@ . || exit 1
     done
 }
 
