@@ -1,7 +1,17 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://www.graphviz.org/pub/graphviz/ARCHIVE/graphviz-2.14.1.tar.gz"
-TARBALL="graphviz-2.14.1.tar.gz"
+URL="http://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.38.0.tar.gz"
+TARBALL="graphviz-2.38.0.tar.gz"
 
-gnu_pkg
+gnu_pkg \
+  --without-qt \
+  --disable-python \
+  --disable-swig \
+  --disable-ocaml \
+  --disable-perl \
+  --disable-sharp \
+  --disable-guile \
+  --disable-java \
+  --disable-lua \
+  --disable-php
