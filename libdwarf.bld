@@ -11,7 +11,9 @@ setup
   setup_env
   src_configure CFLAGS="-ggdb3" --enable-shared || exit 1
   src_make dd || exit 1
+
   # libdwarf's install is broken.
+  mkdir -p ${PREFIX}/lib ${PREFIX}/include
   cp libdwarf/libdwarf.so ${PREFIX}/lib || exit 1
   cp libdwarf/*.h ${PREFIX}/include/ || exit 1
   exit 1
