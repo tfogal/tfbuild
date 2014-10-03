@@ -12,7 +12,7 @@ setup
 
   cmake_configure \
     -DLIBDWARF_INCLUDE_DIR:PATH=${PREFIX}/include \
-    -DCMAKE_BUILD_TYPE:STRING="Debug" \
+    -DCMAKE_BUILD_TYPE:STRING="Release" \
     $@ || exit 1
   src_make || exit 1
   src_install || exit 1
