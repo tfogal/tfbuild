@@ -17,12 +17,3 @@ src_configure --without-x --without-xft --without-gnome --with-gcc linux
 src_make
 src_install
 teardown
-
-mkdir -p ~/.elvis
-cd ~/
-if ! test -f .elvisrc ; then
-  download http://ubuntuone.com/22cfAsVDkVIz7veykaMw8r
-  mv 22cfAsVDkVIz7veykaMw8r .elvisrc
-else
-  echo ".elvisrc already exists; not overwriting it."
-fi
