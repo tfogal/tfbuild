@@ -1,0 +1,6 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v4.3&type=source&os=all&downloadFile=ParaView-v4.3.0-RC1-source.tar.gz"
+
+cmake_pkg
