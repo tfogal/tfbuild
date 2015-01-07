@@ -126,7 +126,7 @@ function gnu_pkg()
     src_cd
 
     setup_env
-    src_configure --disable-dependency-tracking $@
+    src_configure $@
     src_make
     src_install
     teardown
