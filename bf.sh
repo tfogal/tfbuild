@@ -4,7 +4,7 @@
 PREFIX="${HOME}/sw"
 JOBS=8
 if test $(uname) == "Linux" ; then
-  JOBS=$(grep processor | wc -l)
+  JOBS=$(grep processor /proc/cpuinfo | wc -l)
 fi
 
 function download()
