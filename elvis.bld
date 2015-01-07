@@ -3,17 +3,13 @@ source ~/build/bf.sh
 
 URL="ftp://ftp.cs.pdx.edu/pub/elvis/elvis-2.2_0.tar.gz"
 TARBALL="elvis-2.2_0.tar.gz"
+REPO="https://github.com/mbert/elvis.git"
+DIR="elvis"
 
 setup
-src_download
-src_extract
-cd "${TARBALL%%.tar.gz}"
-download \
-  http://ftp.de.debian.org/debian/pool/main/e/elvis/elvis_2.2.0-11.1.diff.gz
-gunzip elvis_2.2.0-11.1.diff.gz || exit 1
-patch -p1 -i elvis_2.2.0-11.1.diff || exit 1
-patch -p1 -i debian/patches/getline
-src_configure --without-x --without-xft --without-gnome --with-gcc linux
-src_make
-src_install
+  git clone --depth 1 ${REPO} || exit 1
+  src_cd
+  src_configure --without-x --without-xft --without-gnome --with-gcc linux
+  src_make
+  src_install
 teardown
