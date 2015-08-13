@@ -1,0 +1,16 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="https://pypi.python.org/packages/source/p/pycuda/pycuda-2015.1.2.tar.gz#md5=829c828c90f02dda25f8ec326e53e907"
+TARBALL="pycuda-2015.1.2.tar.gz"
+
+setup
+src_download
+src_extract
+src_cd
+	setup_env
+	python3 configure.py --cuda-enable-gl
+	python3 setup.py build || exit 1
+	python3 setup.py build_clib || exit 1
+	python3 setup.py install --prefix=${PREFIX} || exit 1
+teardown
