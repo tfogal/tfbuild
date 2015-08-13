@@ -1,0 +1,14 @@
+--- Objects/orig.c	2015-08-12 09:55:46.471494358 -0700
++++ Objects/obmalloc.c	2015-08-12 09:56:13.829896308 -0700
+@@ -1076,11 +1076,7 @@
+      arenas[arenaindex_temp].address != 0)
+ 
+ 
+-/* This is only useful when running memory debuggers such as
+- * Purify or Valgrind.  Uncomment to use.
+- *
+ #define Py_USING_MEMORY_DEBUGGER
+- */
+ 
+ #ifdef Py_USING_MEMORY_DEBUGGER
+ 

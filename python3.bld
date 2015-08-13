@@ -1,0 +1,27 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tar.xz"
+
+flags="-pthread -ggdb -fPIC"
+setup
+src_download
+src_extract
+src_cd
+	setup_env
+	patch -p0 -i ~/build/patches/python-debug.diff
+	mkdir bld
+	cd bld
+		../configure \
+			CFLAGS="${flags}" \
+			CXXFLAGS="${flags}" \
+			LDFLAGS="${flags}" \
+			--prefix="${PREFIX}" \
+			--without-pymalloc \
+			--with-cxx-main \
+			--with-valgrind \
+			--with-threads
+
+		src_make
+		src_install
+teardown
