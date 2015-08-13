@@ -28,6 +28,11 @@ PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 # just use the short one: "python2.5"  My current install is using the latter,
 # but if this breaks for you, you might want to try just:
 #   PYVER=$(python -V 2>&1 | awk '{print $2}')
+PY3MAJOR=$(python3 -V 2>&1 | awk '{print $2}' | cut -d . -f1)
+PY3MINOR=$(python3 -V 2>&1 | awk '{print $2}' | cut -d . -f2)
+PY3VER="${PY3MAJOR}.${PY3MINOR}"
+PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib64/python${PY3VER}/site-packages"
+PYTHONPATH="${PYTHONPATH}:${PREFIX}/lib/python${PY3VER}/site-packages"
 PYMAJOR=$(python -V 2>&1 | awk '{print $2}' | cut -d . -f1)
 PYMINOR=$(python -V 2>&1 | awk '{print $2}' | cut -d . -f2)
 PYVER="${PYMAJOR}.${PYMINOR}"

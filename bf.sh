@@ -2,7 +2,7 @@
 # Build functionality
 
 PREFIX="${HOME}/sw"
-JOBS=8
+JOBS=12
 if test $(uname) == "Linux" ; then
   JOBS=$(grep processor /proc/cpuinfo | wc -l)
 fi
@@ -104,6 +104,8 @@ function src_cd()
         cd "${TARBALL%%.tgz}" || exit 1
     elif [ "${TARBALL%%zip}" != "${TARBALL}" ] ; then
         cd "${TARBALL%%.zip}" || exit 1
+    elif [ "${TARBALL%%xz}" != "${TARBALL}" ] ; then
+        cd "${TARBALL%%.tar.xz}" || exit 1
     else
         cd "${TARBALL}" || exit 1
     fi
@@ -177,5 +179,19 @@ function python_pkg()
     python setup.py build || exit 1
     python setup.py build_clib || exit 1
     python setup.py install --prefix=${PREFIX} || exit 1
+    teardown
+}
+
+function python3_pkg()
+{
+    setup
+    src_download
+    src_extract
+    src_cd
+
+    setup_env
+    python3 setup.py build || exit 1
+    python3 setup.py build_clib || exit 1
+    python3 setup.py install --prefix=${PREFIX} || exit 1
     teardown
 }
