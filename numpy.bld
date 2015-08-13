@@ -1,9 +1,9 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://downloads.sourceforge.net/numpy/numpy-1.2.1.tar.gz?modtime=1225265011&big_mirror=0"
-TARBALL="numpy-1.2.1.tar.gz"
+URL="http://downloads.sourceforge.net/project/numpy/NumPy/1.9.2/numpy-1.9.2.tar.gz"
+TARBALL="numpy-1.9.2.tar.gz"
 
 echo "This tends not to work ... you might want to try:"
 echo -e '\teasy_install --prefix="/scratch/sw" NumPy'
-python_pkg
+python3_pkg

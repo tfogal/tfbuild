@@ -1,11 +1,7 @@
 #!/bin/sh
 source ~/build/bf.sh
 
-URL="http://pypi.python.org/packages/2.6/s/setuptools/setuptools-0.6c11-py2.6.egg"
-TARBALL="setuptools-0.6c11.tar.gz"
+URL="https://pypi.python.org/packages/source/s/setuptools/setuptools-18.1.tar.gz#md5=f72e87f34fbf07f299f6cb46256a0b06"
+TARBALL="setuptools-18.1.tar.gz"
 
-setup
-    src_download
-    setup_env
-    sh setuptools-0.6c11-py2.6.egg --prefix="${PREFIX}" || exit 1
-teardown
+python3_pkg
