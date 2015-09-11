@@ -1,0 +1,15 @@
+#!/bin/sh
+source ~/build/bf.sh
+
+URL="http://tau.uoregon.edu/tau.tgz"
+DIR="tau-2.24.1"
+
+setup
+src_download
+src_extract
+src_cd
+	setup_env
+	./configure -mpi -LINUXTIMERS -prefix=${PREFIX} -exec-prefix=""
+	src_make
+	src_install
+teardown
